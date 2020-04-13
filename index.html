@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID LIVE CASES</title>
+    <link rel="stylesheet" href="CSS/style.css">
+<!-- Bootstrap CSS link-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Bootstrap JS Link-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js" type="text/javascript"></script>
+<script src="JS/script.js" type="text/javascript"></script>
+
+<!-- JQuery CDN-->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    
+  <div class="container">
+      <div class="jumbotron text-center py-3 ">
+          <h1>{{title}}</h1>
+          <p>Coronavirus disease (COVID-19) is an infectious disease caused by a new virus.
+            The disease causes respiratory illness (like the flu) with symptoms such as a cough, 
+            fever, and in more severe cases, difficulty breathing. You can protect yourself 
+            by washing your hands frequently, avoiding touching your face, and avoiding close
+             contact (1 meter or 3 feet) with people who are unwell.</p>
+             <h2>World Wide Cases</h2>
+          <div class="row text-center mt-4">
+            <div class="col-sm-4">
+              <div class="card bg-info text-white">
+                  <div class="card-body">
+                      <h3>Confirmed Cases</h3>
+                      <h3>{{all_data.confirmed.value}}</h3>
+                  </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h3>Recovered </h3>
+                        <h3>{{all_data.recovered.value}}</h3>
+                    </div>
+                </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h3>Deaths</h3>
+                    <h3>{{all_data.deaths.value}}</h3>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- input field-->
+        <input id = "tags" type="text" class="form-control mt-4" placeholder="Enter Country" ng-model = "c" ng-change="get_country_data()" />
+
+        <!-- country wise data-->
+        <div class="container-fluid"  ng-if="country_data">
+        <h1 class="text-center mt-4 text-uppercase">{{c}}</h1>
+        <div class="row text-center mt-4">
+            <div class="col-sm-4">
+              <div class="card bg-info text-white">
+                  <div class="card-body">
+                      <h3>Confirmed Cases</h3>
+                      <h3>{{country_data.confirmed.value}}</h3>
+                  </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h3>Recovered </h3>
+                        <h3>{{country_data.recovered.value}}</h3>
+                    </div>
+                </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h3>Deaths</h3>
+                    <h3>{{country_data.deaths.value}}</h3>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+     
+</body>
+</html>
